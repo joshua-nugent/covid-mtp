@@ -45,28 +45,8 @@ lmtp_analysis <- function(
   
   start_time <- Sys.time()
   
-  ################################ Not needed for unadjusted analysis
-  # # For outcome
-  # #sl3_list_learners(properties = "continuous")
-  # l_q <- 
-  #   make_learner_stack(
-  #     Lrnr_mean,
-  #     list(Lrnr_xgboost, max_depth = 7),
-  #     Lrnr_glm,
-  #     list(Lrnr_ranger, num.trees = ntrees_gq, mtry = 5),
-  #     Lrnr_gam#,list(Lrnr_dbarts, ntree = ntrees_gq)
-  #   )
-  # # For classification density
-  # #sl3_list_learners(properties = "binomial")
-  # # perhaps add more nuance like:
-  # l_g <-
-  #   make_learner_stack(
-  #     Lrnr_mean,
-  #     list(Lrnr_xgboost, max_depth = 4, eta = .25),
-  #     Lrnr_glm,
-  #     list(Lrnr_ranger, num.trees = 500),
-  #     Lrnr_gam
-  #   )
+  l_q <- c("SL.glm", "SL.gam", "SL.glm.interaction", "SL.mean","SL.xgboost","SL.earth")
+  l_g <- c("SL.glm", "SL.gam", "SL.glm.interaction", "SL.mean","SL.xgboost","SL.earth")
   
   if(shift_type == "add"){
     shift <- function(data, trt){
@@ -163,13 +143,13 @@ lmtp_analysis <- function(
       data = dat,
       trt = exposure,
       outcome = outcome,
-      baseline = "W",
+      baseline = "W",########################### unadj
       shift = shift,
       intervention_type = "mtp",
       outcome_type = "continuous",
-      bounds = c(outcome_lower_bound, outcome_upper_bound)#,
-      #learners_outcome = l_q, ############################## unadj
-      #learners_trt = l_g  ################################## unadj
+      bounds = c(outcome_lower_bound, outcome_upper_bound),
+      learners_outcome = l_q, 
+      learners_trt = l_g  
     )
   })
   
