@@ -2,9 +2,10 @@ require(tidyverse)
 require(lubridate)
 
 day <- "results/2021_02_19"
-leadY <- "2wks" 
-WY_lag <- "lag1" 
-IMGNAME <- paste0("_",day,"_",leadY,"_",WY_lag,".png")
+dd <- "2021_02_19"
+leadY <- "2wks" # Change these for sensitivity analysis plots, "2wks" or "1wks"
+WY_lag <- "lag1" # Change these for sensitivity analysis plots "Lag1" or "current"
+IMGNAME <- paste0("_",dd,"_",leadY,"_",WY_lag,".png")
 
 Cda <- readRDS(paste0(day, "_unadj=FALSE_leadY=",leadY,"_WY_lag=",WY_lag,"_dex_a.rds"))
 Cd <- readRDS(paste0(day, "_unadj=FALSE_leadY=",leadY,"_WY_lag=",WY_lag,"_dex.rds"))
