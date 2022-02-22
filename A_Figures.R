@@ -138,7 +138,7 @@ absplot <- function(data,
           legend.text = element_text(size = 9)) +
     facet_wrap(~exposure) +
     coord_cartesian(ylim = y_range) +
-    labs(y = "Expected difference in COVID-19 growth rates (per 100,000 residents)\nwith shifted mobility as compared to observed mobiilty",
+    labs(y = "Expected difference in new COVID-19 cases per 100,000 residents\nwith shifted mobility as compared to observed mobiilty",
          x = "Date")
 }
 

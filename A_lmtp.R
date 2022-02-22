@@ -188,6 +188,10 @@ lmtp_analysis <- function(
   #print(density_ratios)
   #print(summary(density_ratios[,1]))
   print(summary(density_ratios))
+  print("Q SL weights:")
+  print(fit_shift$weights_m)
+  print("r SL weights:")
+  print(fit_shift$weights_r)
   
   plan(sequential)
   elapsed_time <- Sys.time() - start_time

@@ -72,7 +72,7 @@ absplot <- function(data,
     scale_color_manual(name = 'Adjustment',guide=guide_legend(reverse=TRUE),
                         values =c('Adjusted'='#F8766D','Unadjusted'='grey60'))+#, labels = c('c2','c1'))+
     coord_cartesian(ylim = y_range) +
-    labs(y = "Expected difference in COVID-19 growth rates (per 100,000 residents)\nwith shifted mobility as compared to observed mobiilty",
+    labs(y = "Expected difference in new COVID-19 cases per 100,000 residents\nwith shifted mobility as compared to observed mobiilty",
          x = "Date")
 }
 
